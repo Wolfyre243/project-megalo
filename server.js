@@ -1,14 +1,16 @@
+import { createBasePool } from './database/databasing.js';
 // Express.js Server
 
 import express from 'express';
 const app = express();
 const PORT = 4320; // the port to listen on
-const hostname = '192.168.0.106'
 
-app.listen(PORT, hostname, () => {
-    console.log(`Server running at http://${hostname}:${PORT}/`);
+app.listen(PORT, () => {
+    console.log(`Server running!`);
 });
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World</h1>');
+    const pool = createBasePool();
+    console.log("Connected successfully to postgres!")
+    res.send('<h1>Hello World</h1>');
 });

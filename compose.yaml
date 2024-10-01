@@ -8,13 +8,17 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  server:
+  megalo-server:
+    image: megalo:latest
     build:
       context: .
     environment:
       NODE_ENV: production
+    hostname: megalo
     ports:
-      - 3000:3000
+      - 4320:4320
+    volumes:
+      - ./serverStorage:/serverStorage
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

@@ -1,2 +1,6 @@
 node_modules
 serverStorage
+secrets
+
+data
+init.sql
